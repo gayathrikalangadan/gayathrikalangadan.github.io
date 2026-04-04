@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modern styling with elegant fonts */
+        body {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Hero header with overlay effect */
+        .bgimg {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        /* Dark overlay for better text readability */
+        .bgimg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Main title styling */
+        .w3-display-middle span {
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+        
+        /* Tag styling */
+        .w3-display-bottomleft span, 
+        .w3-display-bottomright span {
+            position: relative;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Author name styling */
+        .w3-display-bottomright span p {
+            margin: 0;
+            font-style: italic;
+        }
+        
+        /* Navigation bar styling */
+        .w3-top {
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .w3-black {
+            background-color: #1a1a1a !important;
+        }
+        
+        .w3-row {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .w3-col.s1 {
+            width: auto;
+            padding: 0 10px;
+        }
+        
+        .w3-button {
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 14px;
+            padding: 12px 24px !important;
+            border-radius: 0;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .w3-button:hover {
+            background-color: #333 !important;
+            border-bottom: 3px solid #8B4513;
+        }
+    </style>
+</head>
+<body>
+
+<header class="bgimg w3-display-container">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    <span class="w3-tag">Book Reviews (not consistently maintained)</span>
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white" style="font-size:60px; font-weight:bold; font-family: 'Merriweather', serif;">
+      ABOUT THE BOOKS I LOVE<br> (AND HATE)
+    </span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    <span class="w3-text-white" style="font-weight:bold;"><p>by Gayathri</p></span>
+  </div>
+</header>
+
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s1">
+      <a href="index.html#section3" class="w3-button w3-block w3-black">HOME</a>
+    </div>
+    <div class="w3-col s1">
+      <a href="#book-links" class="w3-button w3-block w3-black">BOOKS</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+ <article class="book-review-content">
+        <header class="review-header">
+            <h1 class="review-title">The Shadow of the Wind</h1>
+            <p class="review-subtitle">A Novel About the Magic of Books</p>
+            <div class="review-meta">
+                Reviewed on June 15, 2023 • 8 min read • Fiction, Mystery
+            </div>
+        </header>
+
+        <div class="book-cover-container">
+            <img src="https://m.media-amazon.com/images/I/81Jd7O7udiL._AC_UF1000,1000_QL80_.jpg" alt="The Shadow of the Wind book cover" class="book-cover">
+        </div>
+
+        <div class="review-body">
+            <p>There are books that whisper to you from dusty shelves, promising secrets and adventures. Carlos Ruiz Zafón's <em>The Shadow of the Wind</em> is one such book—a love letter to literature wrapped in a gothic mystery. Set in post-war Barcelona, the novel follows young Daniel Sempere as he discovers a forgotten book that will change his life forever.</p>
+
+            <div class="review-pullquote">
+                "Every book, every volume you see here, has a soul. The soul of the person who wrote it and of those who read it and lived and dreamed with it."
+            </div>
+
+            <p>Zafón's Barcelona is a character in itself—a city of misty alleyways and hidden courtyards, where the Cemetery of Forgotten Books holds tomes that have slipped from collective memory. The prose is lush without being florid, evocative without being overwrought. There's a tactile quality to the writing that makes you feel the weight of aged paper and smell the musty scent of old libraries.</p>
+
+            <p>The central mystery—why someone is systematically destroying every copy of Julián Carax's works—unfolds with perfect pacing. Zafón masterfully weaves together multiple timelines, revealing connections between characters in ways that feel both surprising and inevitable.</p>
+
+            <p>What makes this novel truly special is how it captures the intimate relationship between reader and book. Daniel's obsession with Carax's work mirrors our own experiences of being profoundly changed by certain stories. The novel explores how books can become repositories of our memories, markers of our personal histories.</p>
+
+            <div class="review-rating">
+                <div class="rating-stars">★★★★☆</div>
+                <p><strong>4.5/5</strong> - A mesmerizing labyrinth of a book that will haunt bibliophiles long after the final page. While some secondary characters could be more developed, the novel's atmosphere and central mystery are utterly compelling.</p>
+            </div>
+
+            <p>Ultimately, <em>The Shadow of the Wind</em> is about the immortality of stories and how they shape us. It's a book that makes you want to immediately start reading it again, to catch all the foreshadowing and appreciate Zafón's intricate craftsmanship. For anyone who believes in the magic of books, this is essential reading.</p>
+        </div>
+    </article>

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>book reviews</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Cormorant+SC:wght@500;600&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">  <style>
+    /* Style for the container */
+    .subfigures {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+    
+    /* Style for each subfigure */
+    .subfigure {
+      flex: 1;
+      text-align: center;
+    }
+    .subfigure img {
+      width: 100%;
+      max-width: 200px; /* Adjust as needed */
+      height: auto;
+    }
+    .subfigure figcaption {
+      font-style: italic;
+    }
+
+    /* Container for figures and text */
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    /* Style for figures */
+    .figure {
+      flex: 0 0 auto;
+      padding: 10px; /* Adjust padding as needed */
+      box-sizing: border-box;
+    }
+    .figure img {
+      max-width: 100%; /* Adjust maximum width */
+      height: auto;
+    }
+    /* Style for text */
+    .text {
+      flex: 1;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: "Inconsolata", sans-serif;
+      font-size: 18px;
+    }
+
+
+ /* Hero header with overlay effect */
+        .bgimg {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f5c289;
+            text-align: center;
+        }
+        
+        /* Dark overlay for better text readability */
+        .bgimg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+
+    .menu {
+      display: none;
+    }
+
+    /* Warning message style */
+    .warning {
+      background-color: #ffcc00; /* Yellow background */
+      color: #000; /* Black text */
+      font-size: 24px; /* Larger text */
+      padding: 20px; /* Padding around text */
+      text-align: center; /* Center text */
+      margin: 20px 0; /* Margin above and below */
+      border: 2px solid #ff9900; /* Border around the warning */
+      border-radius: 5px; /* Rounded corners */
+    }
+    
+  /* Updated Book Links Section */
+.book-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 30px;
+  background-color: #f5c289;
+}
+
+.book-link {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+  padding: 12px 18px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  transition: all 0.3s;
+  text-align: center;
+  min-width: 150px;
+}
+
+.book-link:hover {
+  background-color: #000;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+/* Ancient Tome Book Review Styles */
+/* Modern Scholarly Book Review Styles */
+.book-review {
+  padding: 50px 40px;
+  margin: 40px auto;
+  max-width: 800px;
+  background-color: #fcfaf7;
+  display: none;
+  border: 1px solid #e0d6c2;
+  border-left: 4px solid #5a4a3a;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  position: relative;
+  font-family: 'Cormorant Garamond', serif;
+  color: #3a3226;
+  line-height: 1.7;
+}
+
+.book-review:target {
+  display: block;
+  animation: gentleAppear 0.6s ease-out;
+}
+
+/* Title Styles */
+.book-review h2 {
+  color: #3a3226;
+  font-family: 'Cormorant', serif;
+  font-weight: 600;
+  font-size: 2.4rem;
+  margin: 0 0 20px 0;
+  padding: 0 0 15px 0;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+.book-review h2:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #8b5a2b;
+  letter-spacing: -1px;
+}
+
+.book-review h2 .author {
+  display: block;
+  font-family: 'Cormorant', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #8b5a2b;
+  margin-top: 8px;
+  letter-spacing: 0.5px;
+  font-style: italic;
+}
+
+/* Content Styles */
+.book-review p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #3a3226;
+  margin-bottom: 20px;
+  padding-left: 15px;
+  border-left: 1px solid #e8e0d0;
+}
+
+.book-review p:first-of-type {
+  font-size: 1.2rem;
+  color: #3a3226;
+  border-left: none;
+  padding-left: 0;
+}
+
+.book-review p:first-of-type:first-letter {
+  float: left;
+  font-size: 3.5rem;
+  line-height: 0.8;
+  padding: 8px 8px 0 0;
+  color: #5a4a3a;
+  font-family: 'Cormorant', serif;
+}
+
+/* Subtle Magical Accents */
+.book-review:before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: -8px;
+  font-size: 1.2rem;
+  color: #8b5a2b;
+  opacity: 0.5;
+}
+
+.book-review:after {
+  content: "✧";
+  position: absolute;
+  bottom: -1px;
+  right: 0;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(to left, #8b5a2b, transparent);
+  opacity: 0.3;
+}
+
+/* Animation */
+@keyframes gentleAppear {
+  from { 
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .book-review {
+    padding: 30px 25px;
+    margin: 30px 15px;
+  }
+  
+  .book-review h2 {
+    font-size: 2rem;
+  }
+  
+  .book-review p {
+    font-size: 1rem;
+  }
+  
+  .book-review p:first-of-type:first-letter {
+    font-size: 2.8rem;
+  }
+}
+  .book-links {
+      display: none; /* Changed from flex to none */
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 30px;
+      background-color: #f5c289;
+    }
+
+    #book-links:target {
+      display: flex; /* Show when targeted */
+    }
+
+    /* Journal Links Section */
+    .log-links {
+      display: none; /* Hidden by default */
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 30px;
+      background-color: #f5c289;
+      
+    }
+
+    #logs:target {
+      display: flex; /* Show when targeted */
+    }
+
+    .log-link {
+      font-size: 18px;
+      font-weight: bold;
+      color: #000;
+      text-decoration: none;
+      padding: 12px 18px;
+      border: 2px solid #000;
+      border-radius: 5px;
+      transition: all 0.3s;
+      text-align: center;
+      min-width: 150px;
+    }
+
+    .log-link:hover {
+      background-color: #000;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+/* Modern Witch Journal Styles */
+.log-entry {
+  padding: 50px 40px;
+  margin: 40px auto;
+  max-width: 800px;
+  background-color: #fcfaf5;
+  display: none;
+  border: 1px solid #e8e0d0;
+  border-top: 4px solid #5a4a3a;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  position: relative;
+  font-family: 'Cormorant Garamond', serif;
+  color: #3a3226;
+  background-image: 
+    linear-gradient(to bottom, rgba(252, 250, 245, 0.9), rgba(252, 250, 245, 0.9));
+  line-height: 1.7;
+}
+
+.log-entry:target {
+  display: block;
+  animation: gentleAppear 0.6s ease-out;
+}
+
+/* Title Styles */
+.log-entry h2 {
+  color: #3a3226;
+  font-family: 'Cormorant', serif;
+  font-weight: 600;
+  font-size: 2.4rem;
+  margin: 0 0 20px 0;
+  padding: 0 0 10px 0;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+.log-entry h2:after {
+  content: "✧✧✧";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  color: #8b5a2b;
+  opacity: 0.7;
+}
+
+.log-entry h2 .date {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #8b5a2b;
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+
+/* Content Styles */
+.log-entry p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #3a3226;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  border-left: 1px solid #e8e0d0;
+}
+
+.log-entry p:first-of-type {
+  font-size: 1.2rem;
+  color: #3a3226;
+  border-left: none;
+  padding-left: 0;
+}
+
+.log-entry p:first-of-type:first-letter {
+  float: left;
+  font-size: 3.5rem;
+  line-height: 0.8;
+  padding: 8px 8px 0 0;
+  color: #5a4a3a;
+  font-family: 'Cormorant', serif;
+}
+
+/* Subtle Magical Accents */
+.log-entry:before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: #8b5a2b;
+  opacity: 0.3;
+}
+
+.log-entry:after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  right: 30px;
+  font-size: 1rem;
+  color: #8b5a2b;
+  opacity: 0.5;
+}
+
+/* Animation */
+@keyframes gentleAppear {
+  from { 
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .log-entry {
+    padding: 30px 25px;
+    margin: 30px 15px;
+  }
+  
+  .log-entry h2 {
+    font-size: 2rem;
+  }
+  
+  .log-entry p {
+    font-size: 1rem;
+  }
+  
+  .log-entry p:first-of-type:first-letter {
+    font-size: 2.8rem;
+  }
+}
+
+/* Animation */
+@keyframes spellcast {
+  0% { 
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+    filter: blur(2px);
+  }
+  50% {
+    opacity: 0.8;
+    filter: blur(1px);
+  }
+  100% { 
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .log-entry {
+    padding: 30px 20px;
+    margin: 20px 10px;
+  }
+  
+  .log-entry h2 {
+    font-size: 2.2rem;
+  }
+  
+  .log-entry p {
+    font-size: 1.05rem;
+  }
+  
+  .log-entry p:first-of-type:first-letter {
+    font-size: 3.5rem;
+  }
+}
+
+    /* Hide other content when showing books or logs */
+    #book-links:target ~ #logs,
+    #logs:target ~ #book-links {
+      display: none;
+    
+
+  
+}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    <span class="w3-tag">Book Reviews (not consistently maintained)</span>
+  </div>
+  <div class="w3-display-middle w3-center">
+<span  style="font-size:60px; font-weight:bold; color:#d4a373!important; font-family: 'Merriweather', serif;">
+  ABOUT THE BOOKS I LOVE<br> (AND HATE)
+</span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    <span class="w3-text-white" fontweight="bold" color:#d4a373><p> by Gayathri </p></span>
+  </div>
+</header>
+
+
+
+
+
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s1">
+      <a href="index.html#section3" class="w3-button w3-block w3-black">HOME</a>
+    </div>
+    <div class="w3-col s1">
+      <a href="#book-links" class="w3-button w3-block w3-black">BOOKS</a>
+        </div>
+          <div class="w3-col s1">
+      <a href="#logs" class="w3-button w3-block w3-black">LOGS</a>
+        </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="book-links" id="book-links">
+  <a href="#book-1" class="book-link">White Nights (Dostoevsky)</a>
+  <a href="#book-2" class="book-link">Letters to a Young Poet (Rilke)</a>
+  <a href="#book-3" class="book-link">The Myth of Sisyphus (Camus)</a>
+  <a href="#book-4" class="book-link">The Fall (Camus)</a>
+  <a href="#book-5" class="book-link">The Stranger (Camus)</a>
+  <a href="#book-6" class="book-link">The Plague (Camus)</a>
+  <a href="#book-7" class="book-link">Steppenwolf (Hesse)</a>
+  <a href="#book-8" class="book-link">The Unbearable Lightness of Being (Kundera)</a>
+  <a href="#book-9" class="book-link">The Bell Jar (Plath)</a>
+  <a href="#book-10" class="book-link">To the Lighthouse (Woolf)</a>
+  <a href="#book-11" class="book-link">The Complete Cosmicomics (Calvino)</a>
+  <a href="#book-12" class="book-link">The Housekeeper and the Professor (Ogawa)</a>
+
+  
+</div>
+
+
+
+
+
+
+
+
+<div id="book-1" class="book-review">
+  <h2>White Nights <span class="author">Fyodor Dostoevsky</span></h2>
+  <p>White Nights. </p>
+</div>
+<!-- Book Review Sections -->
+<div id="book-2" class="book-review">
+  <h2>Letters to a Young Poet <span class="author">by Rainer Maria Rilke</span></h2>
+  <p>
+   </p>
+</div>
+
+
+
+<div id="book-3" class="book-review">
+  <h2>The Myth of Sisyphus <span class="author">by Albert Camus</span></h2>
+  <p>The Myth of Sisyphus. </p>
+</div>
+
+<div id="book-4" class="book-review">
+  <h2>The Fall <span class="author">by Albert Camus</span></h2>
+  <p>The Fall. </p>
+</div>
+
+<div id="book-5" class="book-review">
+  <h2>The Stranger <span class="author">by Albert Camus</span></h2>
+  <p>The Stranger. </p>
+</div>
+
+<div id="book-6" class="book-review">
+  <h2>The Plague <span class="author">by Albert Camus</span></h2>
+  <p>The Plague. </p>
+</div>
+
+<div id="book-7" class="book-review">
+  <h2>Steppenwolf <span class="author">by Hermann Hesse</span></h2>
+  <p>Steppenwolf. </p>
+</div>
+
+<div id="book-8" class="book-review">
+  <h2>The Unbearable Lightness of Being <span class="author">by Milan Kundera</span></h2>
+  <p>The Unbearable Lightness of Being. </p>
+</div>
+
+<div id="book-9" class="book-review">
+  <h2>The Bell Jar <span class="author">by Sylvia Plath</span></h2>
+  <p>The Bell Jar. </p>
+</div>
+
+<div id="book-10" class="book-review">
+  <h2>To the Lighthouse <span class="author">by Virginia Woolf</span></h2>
+  <p>To the Lighthouse. </p>
+</div>
+
+<div id="book-11" class="book-review">
+  <h2>The Complete Cosmicomics <span class="author">by Italo Calvino</span></h2>
+  <p>The Complete Cosmicomics. </p>
+</div>
+
+<div id="book-12" class="book-review">
+  <h2>The Housekeeper and the Professor <span class="author">by Yoko Ogawa</span></h2>
+  <p>The Housekeeper and the Professor. </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Logs Section -->
+<div id="logs" class="log-links">
+  <a href="#log-1" class="log-link">A new City</a>
+  <a href="#log-2" class="log-link">About June</a>
+</div>
+
+<!-- Your existing book reviews remain the same -->
+
+<!-- Log Entries -->
+<div id="log-1" class="log-entry">
+  <h2>A new City <span class="date">June 1 2025</span></h2>
+  <p>Writing</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>thesis work</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    /* Style for the container */
+    .subfigures {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+    
+    /* Style for each subfigure */
+    .subfigure {
+      flex: 1;
+      text-align: center;
+    }
+    .subfigure img {
+      width: 100%;
+      max-width: 200px; /* Adjust as needed */
+      height: auto;
+    }
+    .subfigure figcaption {
+      font-style: italic;
+    }
+
+    /* Container for figures and text */
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    /* Style for figures */
+    .figure {
+      flex: 0 0 auto;
+      padding: 10px; /* Adjust padding as needed */
+      box-sizing: border-box;
+    }
+    .figure img {
+      max-width: 100%; /* Adjust maximum width */
+      height: auto;
+    }
+    /* Style for text */
+    .text {
+      flex: 1;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: "Inconsolata", sans-serif;
+      font-size: 18px;
+    }
+
+    .bgimg {
+      background-position: center;
+      background-size: cover;
+      background-image: url("assets/images/pexels-suzyhazelwood-1629236.jpg");
+      min-height: 100%;
+    }
+
+    .menu {
+      display: none;
+    }
+
+    /* Warning message style */
+    .warning {
+      background-color: #ffcc00; /* Yellow background */
+      color: #000; /* Black text */
+      font-size: 24px; /* Larger text */
+      padding: 20px; /* Padding around text */
+      text-align: center; /* Center text */
+      margin: 20px 0; /* Margin above and below */
+      border: 2px solid #ff9900; /* Border around the warning */
+      border-radius: 5px; /* Rounded corners */
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    <span class="w3-tag">MSc thesis website</span>
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white" style="font-size:60px" fontweight="bold">ROLE OF THE VISHNIAC MAGNETIC HELICITY FLUX IN MEAN FIELD GALACTIC DYNAMOS</span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    <span class="w3-text-white"><p>Done by Gayathri K, 2011067<br>Supervisor: Dr Luke Chamandy<br>Collaborators: Dr Sharanya Sur(IIA), Dr. Kandaswamy Subramanian(IUCAA), Kishore Gopalakrishnan(IUCAA)</p></span>
+  </div>
+</header>
+
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s1">
+      <a href="index.html#section3" class="w3-button w3-block w3-black">HOME</a>
+    </div>
+    <div class="w3-col s1">
+      <a href="#introduction" class="w3-button w3-block w3-black">ABOUT</a>
+        </div>
+        <div class="w3-col s1">
+      <a href="#abss" class="w3-button w3-block w3-black">ABSTRACT</a>
+        </div>
+
+    <div class="w3-col s1">
+      <a href="#simset" class="w3-button w3-block w3-black">SIMULATIONS</a>
+    </div>
+    <div class="w3-col s1">
+      <a href="#res" class="w3-button w3-block w3-black">RESULTS</a>
+    </div>
+        <div class="w3-col s1">
+      <a href="#docs" class="w3-button w3-block w3-black">THESIS pdf</a>
+    </div>
+    <div class="w3-col s1">
+      <a href="#ref" class="w3-button w3-block w3-black">REFERENCES</a>
+    </div>
+  </div>
+</div>
+
+<!-- Main content section -->
+<div class="w3-content" style="max-width:700px">
+  <h1 class="w3-center w3-padding-64" id="introduction"><span class="w3-tag w3-wide">The Origin Story</span></h1>
+  <!-- <p>
+    My MSc thesis focuses on the magnetohydrodynamic (MHD) simulations of galactic magnetic fields using mean-field dynamo theory. Magnetic fields play a crucial role in the evolution and dynamics of galaxies, influencing star formation, gas dynamics, and the overall structure of galaxies. Understanding these magnetic fields is essential for unraveling the complexities of galaxy formation and evolution. In this thesis, I aim to explore the mechanisms of dynamo quenching. I focus on the dynamic quenching model, particularly the role of magnetic helicity fluxes, to gain insights into how these phenomena shape galactic magnetic fields.</p>
+    
+    <p>The core of my research involves developing a dynamic quenching model for the &#945-&#937 dynamo, where I solve the mean-field and helicity evolution equations simultaneously. In my simulations, I focus on the non-linear regime of the dynamo process and examine the effects of various magnetic helicity fluxes, particularly the <strong>New Vishniac (NV) flux</strong>, along with advective and diffusive helicity fluxes. The inclusion of the NV flux introduces new dynamics not predicted by traditional mean-field dynamo theory, resulting in phenomena such as oscillations, multiple magnetic field reversals, and varying magnetic pitch angles. Currently, I am conducting one-dimensional simulations and am in the process of expanding my work to two dimensions to capture more complex behaviors and interactions within galactic magnetic fields. I plan to derive an analytic expression for these fluxes to create a modified helicity evolution equation, enhancing the theoretical framework of my simulations. </p>
+    
+    
+    <p> This thesis aims to provide a deeper understanding of how magnetic helicity fluxes contribute to the evolution of large-scale magnetic fields in galaxies. By addressing uncertainties in the approximations made for the triple correlation flux, I aim to improve the reliability of my models. Ultimately, an ambitious goal is to explore the implications of these findings for observational studies of galactic magnetic fields and their relationship with galaxy dynamics, contributing valuable insights to astrophysics.</p> -->
+
+<p>I started working on this project in February 2024, but the code development actually began a semester earlier. During my magnetohydrodynamics and plasma physics course taught by my supervisor, Dr. Luke Chamandy, as part of a term paper, I developed a simple mean-field dynamo simulation in Python. It was one-dimensional in the radial direction (r) of cylindrical polar coordinates.
+
+After my thesis topic was finalized, I began working on a more advanced mean-field dynamo model, now one-dimensional in the vertical (z) direction. Due to runtime and time complexity issues, I rewrote the entire code in Fortran. I used 6th-order finite differencing and an implicit RK3 scheme for time-stepping. The algorithms were inspired by the Pencil Code, a well-established codebase in this area of research.
+
+My favourite part of this thesis was definitely the code development: it significantly improved my computational skills and gave me the weirdest joy known to man.
+
+The novelty of this thesis lies in the fact that the Vishniac flux, a type of magnetic helicity flux, is explored for the first time in this context. It was proposed by Dr. Ethan Vishniac in 2012, and he suggested that it could radically shift our understanding of how dynamos function. My collaborators, Dr. Subramanian and Gopalakrishnan, derived the Vishniac flux, along with new forms of diffusive flux (until then, we were using a Fickian diffusion term manually inserted into simulations), from third-order correlation terms involving random velocity and magnetic fields, in their 2023 paper.
+
+I derived the mathematical expressions for these new fluxes for the specific case of a disc galaxy, and studied their effects through both simulations and analytical approximation-based reasoning.
+
+You can find more about helicity fluxes (like, what even are they?) and, the best part—the results by scrolling. </p>  <!-- Warning message -->
+
+</div>
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h1 class="w3-center w3-padding-64" id="abss"><span class="w3-tag w3-wide">An Abstract</span></h1>
+    <p>
+      Magnetic fields are crucial to the evolution of galaxies, but the mechanisms amplifying and sustaining large-scale fields remain unclear. 
+      In disc galaxies, the evolution of large-scale magnetic fields is explained through mean-field dynamo theory which focuses on the mean magnetic field (<code>B̄</code>), while the role of random magnetic fields (<code>b</code>) is often overlooked. These smaller-scale fields serve as a helicity reservoir. 
+      Without effective fluxes to expel excess helicity, the buildup of magnetic helicity can suppress the alpha-effect. Helicity fluxes can counteract this by redistributing helicity. 
+
+      In this study, we incorporate one such helicity flux, the Vishniac flux, into numerical models for the first time, building on the analytical framework of Gopalakrishnan & Subramanian (2023). 
+      This thesis employs an independently developed numerical simulation code that solves a one-dimensional model in the vertical (<i>z</i>) direction, based on the thin-disc and axisymmetry approximations. 
+      A dynamical quenching framework is implemented, simultaneously solving the mean-field induction equation and the magnetic helicity evolution equation. 
+
+      We assess the impact of the Vishniac flux on the evolution of galactic magnetic fields in the presence of a finite diffusive flux and varying strengths of small-scale magnetic fields, parametrized by <code>ξ₀</code>, the ratio of small-scale magnetic to kinetic energy density. 
+      An analytical study of the model is also performed using the no-<i>z</i> approximation. 
+
+      Our results show that the Vishniac flux undergoes a sign reversal at a critical value <code>ξ<sub>crit</sub></code>, marking a transition from dynamo suppression to enhancement. 
+      At high super-equipartition values <code>ξ<sub>growth</sub></code>, the flux alone is capable of driving the dynamo even in the absence of kinetic helicity, by generating an effective alpha-effect through helicity transport. 
+      While such strong small-scale magnetic fields are not unphysical, they are also not typically realistic in the context of galactic discs. 
+
+      The results suggest the possibility of a magnetically driven dynamo mechanism under specific conditions, such as strong rotation and super-equipartition small-scale magnetic fields. 
+      This study highlights the potential role of helicity fluxes in sustaining large-scale magnetic fields and motivates further investigation into magnetic contributions to dynamo action.
+    </p>
+  </div>
+</div>
+
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h1 class="w3-center w3-padding-64" id="simset"><span class="w3-tag w3-wide">Simulation Setup</span></h1>
+    
+    <p>
+      The dynamical quenching model , i.e., the mean-field induction equation and helicity evolution equation , is solved numerically using a simulation code developed in <code>FORTRAN</code> (Fortran 95). 
+      The numerical schemes are inspired by the well-established <code>Pencil Code</code>, which employs a high-order finite-difference, non-conservative formulation for compressible magnetohydrodynamic (MHD) flows. 
+      Time integration in that code is implemented via an explicit scheme.
+    </p>
+
+    <p>
+      Inspired by this, I developed my own simulation using Fortran 95. 
+      Spatial derivatives are approximated using a sixth-order finite differencing method, which balances accuracy and efficiency. 
+      Higher-order schemes (8th and 12th) showed only marginal gains in accuracy but were significantly more computationally demanding, requiring increased memory and longer runtimes. 
+      Hence, the sixth-order method was chosen as the most efficient option.
+    </p>
+
+    <p>
+      Time evolution is handled using a third-order implicit Runge-Kutta (RK3) scheme (Brandenburg, 2003). 
+      Although a fourth-order explicit RK4 scheme was also tested, no significant difference in results was observed. 
+      A key advantage of the implicit RK3 scheme over the explicit RK4 is its stability in handling the stiff equations that arise in MHD simulations, where diffusion and advection operate on different timescales. 
+      The RK3 scheme enables larger time steps while maintaining stability, making it more computationally efficient than RK4, which requires smaller time steps and higher memory usage.
+    </p>
+
+    <p>
+      The simulation employs a spatial resolution of 101 grid points. 
+      While models were also tested with 51 and 201 grid points, the 201-point resolution, although slightly more accurate, was significantly slower. 
+      Therefore, a resolution of 101 grid points was used as the default, with all new models also tested at 201 points to verify the consistency of structures in the output.
+    </p>
+
+    <p>
+      Boundary conditions are implemented using ghost zones , additional grid points beyond the physical domain. 
+      These ghost zones are not part of the actual solution but are used to impose boundary conditions through mirroring, extrapolation, or other specific rules. 
+      In the code, three ghost cells are placed on each side of the physical grid, resulting in a total of 107 grid points. 
+      The use of ghost zones helps maintain the accuracy of finite differencing near boundaries and prevents numerical instabilities that would arise from directly enforcing conditions at the edge.
+    </p>
+  </div>
+</div>
+
+
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h1 class="w3-center w3-padding-64" id="res"><span class="w3-tag w3-wide">Results</span></h1><p>We found that the Vishniac flux alone can, in principle, drive dynamo action. When examining very high values of \(\xi_0\), the flux becomes significantly stronger due to its quadratic dependence on \(\xi_0\). Under these conditions, the Vishniac flux by itself can sustain dynamo action. While this scenario is not realistically applicable to typical galactic systems, it is theoretically intriguing. It represents a form of magnetically driven dynamo action—a departure from the conventional kinetically driven models—adding a new layer of complexity to our understanding of dynamo processes.</p>
+
+<p>Our primary question was whether this new flux could significantly alter our understanding of mean-field dynamo theory. The short answer is: theoretically, yes; realistically, not by much. There exists a threshold value of \(\xi_0\), denoted \(\xi_{\text{growth}}\), above which independent dynamo action becomes possible. However, in all our simulations, this threshold occurs at superequipartition magnetic field strengths. While not unphysical, such conditions are not realistically expected in galactic environments. Thus, we conclude that the Vishniac flux alone does not independently drive a dynamo to saturation for realistic values of \(\xi_0\).</p>
+
+<p>Next, we explored whether adding this flux to a conventional dynamo, where \(\alpha_k\) drives the system, would enhance or hinder magnetic field growth. The answer depends on the circumstances. The flux expression introduces a saddle point where it changes sign, and this transition occurs at different values of \(\xi_0\) depending on the turbulence profile. For turbulence peaking at the disc edges, the sign flip occurs around \(\xi_0 = 0.506\), whereas for turbulence peaking at the midplane, it occurs closer to \(\xi_0 = 1\). Below these values, the Vishniac flux suppresses dynamo action, while above them, it enhances it.</p>
+
+<p>We also performed a parameter space study by varying the rotation parameter \(R_\Omega\), which is directly proportional to the strength of the Vishniac flux. As \(R_\Omega\) increases, the critical threshold \(\xi_{\text{growth}}\) decreases, making independent dynamo action by Vishniac flux more possible at lower values of \(\xi_0\).</p>
+
+
+<p>We analyzed the simulation results using a method called the no-\(z\) approximation. The findings from the simulations—namely, the independent dynamo action and the regimes of dynamo support and inhibition by the Vishniac flux—were successfully validated. This qualitative analysis helped us understand how the Vishniac flux alone can drive dynamo action without the conventional \(\alpha\)-effects. Specifically, at sufficiently high \(\xi_0\), the Vishniac flux produces a non-zero value of \(\alpha_m\) even during the initial phase of dynamo action. We found that this \(\alpha_m\) mimics the \(\alpha_k\) effect by forming a positive feedback loop with the \(\Omega\) effect, thereby driving the dynamo instability.</p>
+
+<p>One key realization from this thesis is that in systems with either very strong small-scale magnetic field gradients or very large values of rotation, the Vishniac flux can become a significant effect. In such systems, it can drive a mean-field dynamo in the model and generate large-scale magnetic fields without kinetic effects. This implies the existence of a purely magnetically driven dynamo, which is a very exciting prospect for future research. Further work could explore such systems in more detail to study this magnetically driven dynamo action.</p>
+
+<p>A major limitation of the model studied here is the assumption of a vertically constant density profile. This is unrealistic, although we did investigate different turbulent profiles and found that the underlying effect of the Vishniac flux remained qualitatively the same. This is an area where the model can be improved. </p>
+  </div>
+</div>
+
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+<h1 class="w3-center w3-padding-64" id="docs">
+  <span class="w3-tag w3-wide">Meet the docs!</span>
+</h1>
+
+<div class="w3-center w3-padding-16">
+  <p>If you want to read more about my work, you can find all the reports below:</p>
+
+  <a href="assets/images/tenten.pdf" target="_blank" class="w3-button w3-grey w3-margin">
+    📄 10th Semester Thesis Report
+  </a>
+
+  <a href="assets/images/nein.pdf" target="_blank" class="w3-button w3-grey w3-margin">
+    📄 9th Semester Thesis Report
+  </a>
+
+  <a href="assets/images/thesis.pdf" target="_blank" class="w3-button w3-grey w3-margin">
+    📚 Full Thesis Document
+  </a>
+</div>
+  </div>
+</div>
+
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h1 class="w3-center w3-padding-64" id="ref"><span class="w3-tag w3-wide">References</span></h1>
+     <ul>
+    <li>
+      Gent, F. A., Mac Low, M.-M., & Korpi-Lagg, M. J. (2024). <i>Transition from Small-scale to Large-scale Dynamo in a Supernova-driven, Multiphase Medium</i>. The Astrophysical Journal, <b>961</b>(1), 7. <a href="https://doi.org/10.3847/1538-4357/ad0da0">https://doi.org/10.3847/1538-4357/ad0da0</a>
+    </li>
+    <li>
+      Sur, S., Shukurov, A., & Subramanian, K. (2007). <i>Galactic dynamos supported by magnetic helicity fluxes</i>. Monthly Notices of the Royal Astronomical Society, <b>377</b>, 874–882. <a href="https://doi.org/10.1111/j.1365-2966.2007.11662.x">https://doi.org/10.1111/j.1365-2966.2007.11662.x</a>
+    </li>
+    <li>
+      Lilly, S. J. (2017). <i>Magnetic fields under the lens</i>. Nature Astronomy, <b>1</b>(9), 565–566. <a href="https://doi.org/10.1038/s41550-017-0230-1">https://doi.org/10.1038/s41550-017-0230-1</a>
+    </li>
+    <li>
+      Chamandy, L., Shukurov, A., Subramanian, K., & Stoker, K. (2014). <i>Non-linear galactic dynamos: a toolbox</i>. Monthly Notices of the Royal Astronomical Society, <b>443</b>(3), 1867–1880. <a href="https://doi.org/10.1093/mnras/stu1274">https://doi.org/10.1093/mnras/stu1274</a>
+    </li>
+    <li>
+      Vishniac, E. T., & Cho, J. (2001). <i>Magnetic Helicity Conservation and Astrophysical Dynamos</i>. The Astrophysical Journal, <b>550</b>, 752–760. <a href="https://doi.org/10.1086/319817">https://doi.org/10.1086/319817</a>
+    </li>
+    <li>
+      Hughes, D. W., Cattaneo, F., & Kim, E.-J. (1996). <i>Kinetic helicity, magnetic helicity and fast dynamo action</i>. Physics Letters A, <b>223</b>(3), 167–172. <a href="https://doi.org/10.1016/S0375-9601(96)00722-0">https://doi.org/10.1016/S0375-9601(96)00722-0</a>
+    </li>
+    <li>
+      Blackman, E. G. (2014). <i>Magnetic Helicity and Large Scale Magnetic Fields: A Primer</i>. Space Science Reviews, <b>188</b>(1–4), 59–91. <a href="https://doi.org/10.1007/s11214-014-0038-6">https://doi.org/10.1007/s11214-014-0038-6</a>
+    </li>
+    <li>
+      Gopalakrishnan, K., & Subramanian, K. (2023). <i>Magnetic Helicity Fluxes from Triple Correlators</i>. The Astrophysical Journal, <b>943</b>(1), 66. <a href="https://dx.doi.org/10.3847/1538-4357/aca808">https://dx.doi.org/10.3847/1538-4357/aca808</a>
+    </li>
+    <li>
+      Beck, R., Chamandy, L., Elson, E., & Blackman, E. G. (2019). <i>Synthesizing Observations and Theory to Understand Galactic Magnetic Fields: Progress and Challenges</i>. <a href="https://arxiv.org/abs/1912.08962">https://arxiv.org/abs/1912.08962</a>
+    </li>
+    <li>
+      Gressel, O. (2009). <i>Supernova-driven Turbulence and Magnetic Field Amplification in Disk Galaxies</i>. PhD thesis, University of Potsdam. <a href="http://nbn-resolving.de/urn:nbn:de:kobv:517-opus-29094">http://nbn-resolving.de/urn:nbn:de:kobv:517-opus-29094</a>
+    </li>
+    <li>
+      Shukurov, A., & Subramanian, K. (2021). <i>Astrophysical Magnetic Fields: From Galaxies to the Early Universe</i>. Cambridge University Press.
+    </li>
+    <li>
+      Brandenburg, A. (2003). <i>Computational aspects of astrophysical MHD and turbulence</i>. In <i>Advances in Nonlinear Dynamos</i>, CRC Press, 269–344. <a href="http://dx.doi.org/10.1201/9780203493137.ch9">http://dx.doi.org/10.1201/9780203493137.ch9</a>
+    </li>
+    <li>
+      Falgarone, E., & Passot, T. (2003). <i>Turbulence and Magnetic Fields in Astrophysics</i>. Lecture Notes in Physics, <b>614</b>. <a href="https://doi.org/10.1007/3-540-36238-X">https://doi.org/10.1007/3-540-36238-X</a>
+    </li>
+    <li>
+      Vishniac, E. T. (2012). <i>A Simple Model for the Galactic Dynamo</i>. American Astronomical Society Meeting Abstracts, <b>220</b>, 308.05. <a href="http://adsabs.harvard.edu/abs/2012AAS...22030805V">http://adsabs.harvard.edu/abs/2012AAS...22030805V</a>
+    </li>
+    <li>
+      CSIRO Astronomy and Space Science. <i>ASKAP: Key Science Projects</i>. <a href="https://www.atnf.csiro.au/projects/askap/ksp.pdf">https://www.atnf.csiro.au/projects/askap/ksp.pdf</a>
+    </li>
+    <li>
+      Beck, R. (2007). <i>Galactic magnetic fields</i>. Scholarpedia, <b>2</b>(8), 2411. <a href="https://doi.org/10.4249/scholarpedia.2411">https://doi.org/10.4249/scholarpedia.2411</a>
+    </li>
+  </ul>
+  </div>
+</div>
+
+</body>
+</html>
