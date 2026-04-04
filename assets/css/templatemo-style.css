@@ -1,0 +1,1094 @@
+
+/* -----------------------------------FONTS----------------- */
+/* @import url(fontawesome.css);
+@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900");
+body {
+    font-family: 'Lato', sans-serif;
+} */
+
+ /* @import url(fontawesome.css);
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,300,400,500,600,700,900");
+
+body {
+    font-family: 'Poppins', sans-serif;
+} */
+
+/* @import url(fontawesome.css);
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,600,700,900");
+
+body {
+    font-family: 'Montserrat', sans-serif;
+} */
+
+
+
+ /* @import url(fontawesome.css);
+@import url("https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800");
+
+body {
+    font-family: 'Nunito', sans-serif;
+} */
+
+
+/* @import url(fontawesome.css);
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
+
+body {
+    font-family: 'Roboto', sans-serif;
+} */
+
+
+/* @import url(fontawesome.css);
+@import url("https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700");
+
+body {
+    font-family: 'Raleway', sans-serif;
+} */
+
+
+/* @import url(fontawesome.css);
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
+
+body {
+    font-family: 'Open Sans', sans-serif;
+} */
+
+
+/*=============================================
+=            GLOBAL VARIABLES & RESET         =
+=============================================*/
+:root {
+    /* Colors */
+    --color-primary: #a43f49; /* Deep Red/Maroon */
+    --color-secondary: #8c363e;
+    --color-text-light: #fff;
+    --color-text-dark: #133244;
+    --color-menu-bg: rgba(19, 50, 68, 0.9); /* Dark Blue with Transparency */
+    --color-overlay-bg: rgba(0, 0, 0, 0.5); /* Background Overlay */
+    --color-button-hover: #F7B5CA;
+    
+    /* Typography */
+    --font-family-primary: 'Ubuntu', sans-serif;
+    --font-family-secondary: 'Georgia', serif;
+
+    /* Spacing */
+    --spacing-small: 10px;
+    --spacing-medium: 20px;
+    --spacing-large: 40px;
+    
+    /* Z-Index */
+    --z-index-background: 1;
+    --z-index-overlay: 2;
+    --z-index-content: 10;
+    --z-index-menu: 9999;
+    --z-index-toggle: 10000;
+}
+
+/* CSS Reset & General Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+input,
+select,
+textarea {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+p {
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--color-text-light);
+    text-align: justify; /* Ensure text is justified */
+}
+
+h4 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--color-text-light);
+    letter-spacing: 0.25px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.clearfix::before,
+.clearfix::after {
+    content: "";
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%; /* Default to full width, adjust in sections */
+    max-width: 1400px; /* Max content width */
+}
+
+/*=============================================
+=            PAGE WRAPPER & BACKGROUND        =
+=============================================*/
+#page-wraper {
+    position: relative;
+    background: url(../images/pexels-instawally-169789.jpg) no-repeat center center fixed;
+    background-size: cover;
+    width: 100%;
+}
+
+/* Background Overlay */
+#page-wraper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-overlay-bg);
+    z-index: var(--z-index-overlay);
+}
+
+/* Ensure content is above the overlay */
+#page-wraper > * {
+    position: relative;
+    z-index: var(--z-index-content);
+}
+
+/*=============================================
+=            SIDEBAR MENU (NAVIGATION)        =
+=============================================*/
+.menu {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 15%;
+    height: 100vh;
+    /* Use a slightly darker, more opaque background for a rich, modern feel */
+    background-color: var(--color-menu-bg);
+    z-index: var(--z-index-menu) !important;
+    overflow-y: auto !important;
+    /* Elevated shadow for depth */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+    transform: translateX(0);
+    /* Smoother, bouncier transition */
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.3s ease-in-out;
+}
+
+/* Smooth Scrollbar - Enhanced Visibility */
+.menu::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+}
+.menu::-webkit-scrollbar-thumb {
+    /* Brighter scrollbar for contrast */
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    /* Add a subtle hover state to the thumb (requires JS or complex CSS for full effect, but good to define) */
+    transition: background-color 0.3s ease;
+}
+.menu::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Menu Image (Profile Picture) */
+.menu .image {
+    margin-top: 60px;
+    /* Center the container */
+    text-align: center;
+}
+
+.menu .image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    /* Thicker, more prominent border */
+    border: 2px solid var(--color-primary);
+    /* Soft internal shadow for dimension */
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    object-fit: cover; /* Ensures image covers the area nicely */
+}
+
+.menu .image img:hover {
+    /* More pronounced, but smooth zoom and rotate */
+    transform: scale(1.05) rotate(1deg);
+    border-color: var(--color-text-light);
+}
+
+/* Author Content */
+.menu .author-content {
+    margin: var(--spacing-large) 0;
+    padding: 0 20px; /* Add horizontal padding for a clean look */
+    color: var(--color-text-light);
+    text-align: center;
+}
+
+.menu .author-content h4 {
+    margin-bottom: 8px; /* Increased margin */
+    font-size: 24px; /* Slightly larger heading */
+    font-weight: 700;
+    letter-spacing: 1.5px; /* Tighter letter spacing for title */
+    color: var(--color-text-light);
+    /* Add text shadow for clarity against dark background */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.menu .author-content span {
+    font-size: 14px;
+    font-style: normal; /* Often better to remove italics for job titles */
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Main Navigation Links */
+.main-nav {
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Single separator line above nav */
+}
+
+.main-nav li {
+    display: block;
+    margin: 0;
+}
+
+.main-nav li a {
+    height: 60px; /* Slightly shorter for a compact, modern look */
+    line-height: 60px;
+    display: block;
+    font-size: 17px; /* Slightly larger text */
+    font-weight: 500; /* Medium weight, less 'heavy' than bold */
+    color: var(--color-text-light);
+    width: 100%;
+    transition: all 0.3s ease;
+    /* Use transparent border that shows up on hover/active */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* Add padding for better visual spacing */
+    padding-left: 20px;
+    text-align: left;
+}
+
+.main-nav li:last-child a {
+    /* Ensures the last item has a bottom border matching the top ones */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.main-nav li:hover a {
+    background: rgba(255, 255, 255, 0.1); /* Subtle transparent hover background */
+    color: var(--color-text-light);
+    /* Add a primary color accent line on hover */
+    border-left: 5px solid var(--color-primary);
+    padding-left: 15px; /* Adjust padding due to border */
+}
+
+.main-nav li.active a {
+    /* Use the primary color for the active state */
+    background: var(--color-primary);
+    color: var(--color-text-light);
+    font-weight: 700;
+    /* Remove the hover effect since it's active */
+    border-left: none;
+    padding-left: 20px;
+}
+/* Enhanced Social Media Icons */
+.menu .social-network {
+    margin-top: 40px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu .social-network ul {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.menu .social-network ul li {
+    display: inline-block;
+}
+
+.menu .social-network ul li a {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    color: var(--color-text-light);
+    font-size: 18px;
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.menu .social-network ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.menu .social-network ul li a:hover::before {
+    left: 100%;
+}
+
+.menu .social-network ul li a:hover {
+    background: var(--color-text-light);
+    color: var(--color-primary);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border-color: transparent;
+}
+
+
+/* Copyright Text */
+.menu .copyright-text {
+    margin-top: 60px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    padding: 20px 20px 40px; /* Added bottom padding for space */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.menu .copyright-text p {
+    padding-top: 0;
+    line-height: 1.4;
+    font-size: 12px;
+}
+
+/* Menu Toggle/Close Buttons (Mobile Only) */
+#menu-toggle {
+    /* Position and size are fine, but enhance the look */
+    background-color: var(--color-primary); /* Use primary color for main toggle */
+    color: var(--color-text-light);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+}
+
+#menu-toggle:hover {
+    background-color: var(--color-secondary); /* Darken slightly on hover */
+}
+
+#menu-close {
+    /* Use the same styling as the menu links for consistency */
+    cursor: pointer;
+    color: var(--color-text-light);
+    background-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 24px; /* Larger icon for easy closing */
+    transition: background-color 0.3s ease;
+}
+
+#menu-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-primary);
+}
+/*=============================================
+=            MAIN CONTENT SECTIONS            =
+=============================================*/
+.section {
+    color: var(--color-text-light);
+    position: relative;
+    min-height: 100vh;
+    padding: 0 5%;
+    padding-bottom: 80px;
+    border-bottom: 3px solid rgba(250, 250, 250, 0.25);
+    left: 35%; /* Default shift for 15% menu + 20% margin */
+    width: 55%;
+    right: 10%;
+    transition: all 0.4s ease; /* Smooth transition for layout changes */
+}
+
+section.contact-me {
+    border-bottom: none;
+}
+
+.section-heading {
+    text-align: center;
+    padding: 80px 45px;
+}
+
+.section-heading h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-text-light);
+}
+
+.section-heading .line-dec {
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-primary);
+    margin: 10px auto;
+}
+
+.section-heading span {
+    margin-top: 5px;
+    font-size: 16px;
+    color: var(--color-text-light);
+    letter-spacing: 0.5px;
+}
+
+/* About Section Specifics */
+section.about .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.about-text {
+    font-size: 0.9em;
+    text-align: justify;
+    font-family: var(--font-family-secondary);
+    font-style: italic;
+}
+
+/* Work/Post Layout */
+.right-image-post,
+.left-image-post {
+    margin-top: 60px;
+    padding-top: 60px;
+    border-top: 2px solid rgba(250, 250, 250, 0.1);
+}
+
+.left-image img,
+.right-image img {
+    border-radius: 5px;
+}
+
+.right-image-post h4,
+.left-image-post h4 {
+    margin-top: 30px;
+}
+
+.right-image-post p,
+.left-image-post p {
+    margin-top: 20px;
+}
+
+.right-image-post .white-button,
+.left-image-post .white-button {
+    margin-top: 30px;
+}
+
+/*=============================================
+=            QUOTE BOXES & LAYOUT             =
+=============================================*/
+@keyframes twinkle {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px; /* Counteracts quote-box margin */
+}
+
+.col-md-6 {
+    flex: 1 1 calc(50% - 20px); /* Ensures two per row with 10px margin on each side (20px total) */
+    display: flex;
+    padding: 10px; /* Use padding for spacing */
+}
+
+.quote-box {
+    flex-grow: 1;
+    background-color: rgba(250, 250, 250, 0.08);
+    border: 2px solid var(--color-text-light);
+    border-radius: 8px;
+    padding: var(--spacing-medium);
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Removed animation: none; to allow twinkle effect if needed */
+}
+
+.quote-box blockquote {
+    font-size: 0.8em;
+    color: var(--color-text-light);
+    margin: 0;
+}
+
+.quote-box footer {
+    font-size: 1.2em;
+    color: var(--color-text-light);
+    margin-top: 10px;
+    font-family: var(--font-family-secondary);
+    font-style: normal;
+}
+
+/*=============================================
+=            BUTTONS & LINKS                  =
+=============================================*/
+/* Primary Button Style (Used in posts/contact) */
+.white-button a {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.5s;
+    border-radius: 3px;
+}
+
+.white-button a:hover {
+    background-color: var(--color-text-light);
+    color: var(--color-primary);
+}
+
+/* Secondary Button Style (Generic) */
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-text-light);
+    color: var(--color-primary);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.5s;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+/* Smaller Inline Button */
+.button {
+    display: inline-block;
+    padding: 4px 8px;
+    text-align: center;
+    background-color: rgba(164, 63, 73, 0.3);
+    color: white;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgba(164, 63, 73, 0.8);
+}
+
+.resume-buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-medium);
+}
+
+.resume-button {
+    margin: 0 10px;
+}
+
+.resume-link {
+    color: inherit;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/*=============================================
+=            RESPONSIVENESS (Media Queries)   =
+=============================================*/
+
+/* DESKTOP (Default - 993px and up) */
+@media (min-width: 993px) {
+    /* Menu is visible */
+    .menu {
+        transform: translateX(0) !important;
+        width: 15%; /* Standard Desktop Menu Width */
+    }
+
+    /* Content is shifted over */
+    .section {
+        width: 60%;
+        left: 30%; /* 15% menu + 15% gap */
+        right: 10%;
+    }
+    
+    /* Hide mobile controls */
+    #menu-toggle,
+    #menu-close {
+        display: none !important;
+    }
+    
+    /* Large Desktop Tweaks */
+    @media screen and (max-width: 1680px) {
+        .menu {
+            left: 0;
+            width: 20%;
+        }
+        .section {
+            width: 70%;
+            left: 25%; /* 20% menu + 5% gap */
+            right: 5%;
+        }
+    }
+    
+    @media screen and (max-width: 1280px) {
+        .menu {
+            width: 25%;
+        }
+        .section {
+            width: 70%;
+            left: 28%; /* 25% menu + 3% gap */
+            right: 2%;
+        }
+    }
+}
+/* Enhanced About Text Styling */
+/* Enhanced About Text Styling with Overlay Effect */
+.about-text {
+    /* Use padding to create a visually enclosed block */
+    padding: 30px 40px; 
+    
+    /* *** OVERLAY EFFECT: *** Using a slightly darker, more opaque background ensures the text pops 
+    over the page's main background image/overlay.
+    */
+    background-color: rgba(19, 50, 68, 0.349); /* Using a slightly more opaque version of var(--color-menu-bg) for contrast */
+    
+    /* Subtle border accent using the primary color */
+    border: 1px solid var(--color-primary); 
+    border-radius: 8px; /* Slightly rounded corners */
+    
+    /* Add a soft shadow to lift it off the background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); 
+    
+    /* Typography Enhancements */
+    font-size: 1.1em !important; /* Slightly larger font for prominence */
+    font-family: var(--font-family-secondary); /* Keep the sophisticated serif font */
+    font-style: italic; /* Keep the italic style */
+    line-height: 1.8; /* Increased line height for easy reading */
+    text-align: justify;
+    color: var(--color-text-light) !important; /* Ensure high contrast white text */
+    
+    /* Make it a block for proper alignment and padding */
+    display: block !important; 
+    
+    /* Add some margin to separate it from other content */
+    margin: 20px 0;
+    
+    /* Use a text shadow for better contrast against the semi-transparent background */
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    
+    transition: all 0.3s ease; /* Ensure smooth transition */
+}
+
+/* Optional: Add a subtle hover effect if the text is interactive */
+.about-text:hover {
+    border-color: var(--color-text-light);
+    background-color: rgba(255, 255, 255, 0.12);
+    transition: all 0.3s ease;
+}
+
+/* Mobile adjustments for tighter screen space */
+@media (max-width: 768px) {
+    .about-text {
+        padding: 20px 25px; /* Reduce padding */
+        font-size: 1em !important; /* Standardize font size */
+        line-height: 1.6;
+    }
+}
+/* TABLET/SMALL DESKTOP (992px to 769px) */
+@media (max-width: 992px) {
+    /* Mobile Menu State (Hidden by default) */
+    .menu {
+        transform: translateX(-100%);
+        width: 300px; /* Fixed width when open */
+        max-width: 80vw;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Menu Open Class (Toggled by JS) */
+    .menu.open {
+        transform: translateX(0);
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Show mobile menu controls */
+    #menu-toggle {
+        display: block;
+    }
+    
+    /* Content occupies full width but is shifted slightly for the toggle button */
+    .section {
+        width: calc(100% - 70px); /* Leave space for the toggle */
+        left: 70px; /* Shift content to the right */
+        right: 0;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    /* Re-center content when the menu is fully closed and the toggle is visible */
+    #page-wraper:not(.menu-open) .section {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+    }
+    
+    /* General Font/Spacing Adjustments */
+    h4 { font-size: 24px; }
+    p { font-size: 15px; line-height: 24px; }
+    .section-heading { padding: 50px 30px 30px; }
+    
+    /* Quote Boxes remain stacked side-by-side but with less margin */
+    .col-md-6 {
+        flex: 1 1 calc(50% - 10px);
+        padding: 5px;
+    }
+}
+/*=============================================
+=            INTEREST CARDS (Replaces Quote Box) =
+=============================================*/
+
+.interest-cards-row {
+    /* Adjust margin to tighten the grid for better use of space */
+    margin: -15px -15px; 
+    padding-top: var(--spacing-medium);
+}
+
+.interest-cards-row .col-md-6 {
+    padding: 15px; /* Increase padding around columns for better card spacing */
+}
+
+.interest-card {
+    flex-grow: 1;
+    /* Elevated background color, slightly more opaque than the general overlay */
+    background-color: rgba(255, 255, 255, 0.05); 
+    
+    border-radius: 12px; /* Modern, softer corners */
+    padding: var(--spacing-medium) calc(var(--spacing-medium) + 10px);
+    
+    /* Use a light border for subtle definition */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* Floating 3D effect */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
+    
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensures all cards stretch to the same height */
+    
+    /* Hover Transition */
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle background overlay for visual texture */
+.interest-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.interest-card:hover {
+    /* Lift and Accentuate on hover */
+    transform: translateY(-5px); 
+    background-color: rgba(164, 63, 73, 0.1); /* Subtle primary color background wash */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5); 
+    border-color: var(--color-primary); /* Primary color border highlight */
+}
+
+.interest-card h4 {
+    /* Accent Line beneath the title */
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: var(--color-text-light);
+    font-weight: 700;
+}
+
+.interest-card h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px; /* Short accent line */
+    height: 3px;
+    background-color: var(--color-primary);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.interest-card:hover h4::after {
+    width: 190px; /* Expand accent line on hover */
+}
+
+.interest-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75); /* Softer white text for body */
+    text-align: justify; /* Remove justify for quote boxes */
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .interest-cards-row {
+        margin: 0; /* Remove negative margins */
+    }
+    .interest-cards-row .col-md-6 {
+        padding: 10px 0;
+    }
+    .interest-card {
+        padding: 20px;
+        border-radius: 8px;
+        margin: 0 5px; /* Add small margin left/right */
+    }
+    .interest-card h4 {
+        font-size: 20px;
+    }
+    .interest-card p {
+        font-size: 14px;
+    }
+}
+/* MOBILE (768px and below) */
+@media (max-width: 768px) {
+    
+    /* Menu is smaller when open */
+    .menu {
+        width: 90vw;
+    }
+    
+    /* Toggle button is crucial */
+    #menu-toggle {
+        top: 15px;
+        left: 15px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 20px;
+    }
+
+    /* Content occupies full width but is shifted slightly for the toggle button */
+    .section {
+        width: 100%;
+        left: 0; /* Content takes full width */
+        padding-left: 20px;
+        padding-right: 20px;
+        min-height: auto;
+        padding-bottom: 40px;
+    }
+
+    /* Adjust section heading for smaller screens */
+    .section-heading {
+        padding: 40px 0 20px;
+    }
+    
+    .section-heading h2 {
+        font-size: 22px;
+    }
+    
+    p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    
+    .about-text {
+        font-size: 0.9em;
+        line-height: 1.6;
+        padding-bottom: 30px;
+    }
+
+    section.about .container {
+        min-height: auto; /* Allow height to collapse to content */
+    }
+    
+    /* Quote boxes stack vertically for better readability */
+    .col-md-6 {
+        flex: 1 1 100%; /* Full width */
+        padding: 10px 0;
+    }
+    
+    .row {
+        margin: 0;
+    }
+
+    /* Post/Work sections adjust */
+    .right-image-post,
+    .left-image-post {
+        margin-top: 30px;
+        padding-top: 30px;
+    }
+
+    /* Smaller form inputs */
+    #contact input,
+    #contact textarea {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+
+/* VERY SMALL MOBILE (480px and below) */
+@media screen and (max-width: 480px) {
+    .menu .image img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .menu .author-content h4 {
+        font-size: 18px;
+    }
+
+    .section-heading h2 {
+        font-size: 20px;
+    }
+    
+    .white-button a,
+    button {
+        font-size: 10px;
+        padding: 8px 12px;
+    }
+}
+/*=============================================
+=            RESEARCH STATUS HIGHLIGHT - BLESSED EYES EDITION =
+=============================================*/
+
+.current-status-highlight {
+    /* Use generous padding for breathing room */
+    padding: 30px 30px;
+    margin: 0 auto 50px auto; 
+    max-width: 100%; 
+    
+    /* BACKGROUND & DEPTH: Rich, dark background */
+    background: linear-gradient(145deg, rgba(19, 50, 68, 0.384) 0%, rgba(14, 38, 51, 0.98) 100%);
+    
+    /* VIBRANT BORDER: Thin, crisp border using the primary color */
+    border: 1px solid rgba(14, 38, 51, 0.98); 
+    border-radius: 12px; /* Smoother, elegant corners */
+    
+    /* ELEVATION: Stronger, more refined box shadow */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 244, 244, 0.61); /* Dual shadow for depth and glow */
+    
+    text-align: left;
+    position: relative;
+    overflow: hidden; /* Important for the shimmer effect */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* SHIMMER/ACCENT EFFECT on Hover (Super cool) */
+.current-status-highlight:hover {
+    transform: translateY(-4px); /* Slight lift */
+    border-color: var(--color-text-light); /* Highlight border */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 30px var(--color-primary);
+}
+
+/* Animated Shimmer Overlay */
+.current-status-highlight::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05); /* Very subtle white wash */
+    transform: skewX(-20deg);
+    transition: left 0.7s ease-in-out;
+}
+
+.current-status-highlight:hover::after {
+    left: 150%;
+}
+
+
+/* TYPOGRAPHY */
+.status-main {
+    font-size: 1.0em; /* Highly visible */
+    font-weight: 600; /* Semi-bold for professionalism */
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin-bottom: 12px; /* Increased separation */
+    text-align: left !important;
+}
+
+.status-sub {
+    font-size: 1.0em;
+    color: rgba(255, 255, 255, 0.75); /* Good contrast, easy on the eyes */
+    line-height: 1.6;
+    text-align: left !important;
+}
+
+.status-icon {
+    font-size: 1.6em; /* Larger icon */
+    margin-right: 15px;
+    vertical-align: middle;
+    color: var(--color-primary); /* Primary color pop */
+    text-shadow: 0 0 5px var(--color-primary); /* Subtle glow on the icon */
+}
+
+.status-main strong {
+    color: var(--color-primary); 
+    font-weight: 800; /* Extra bold highlight */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Mobile Adjustments (Keeps it clean and readable on small screens) */
+@media (max-width: 768px) {
+    .current-status-highlight {
+        padding: 25px;
+        margin: 0 0 30px 0;
+        max-width: 100%;
+        border-radius: 8px;
+    }
+    .status-main {
+        font-size: 1.05em;
+    }
+    .status-sub {
+        font-size: 0.9em;
+    }
+    .status-icon {
+        font-size: 1.2em;
+    }
+}
