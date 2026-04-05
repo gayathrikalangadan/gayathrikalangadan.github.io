@@ -59,14 +59,14 @@ body {
 =============================================*/
 :root {
     /* Colors */
-    --color-primary: #a43f49; /* Deep Red/Maroon */
+    --color-primary: #a43f49;
     --color-secondary: #8c363e;
     --color-text-light: #fff;
     --color-text-dark: #133244;
-    --color-menu-bg: rgba(19, 50, 68, 0.9); /* Dark Blue with Transparency */
-    --color-overlay-bg: rgba(0, 0, 0, 0.5); /* Background Overlay */
+    --color-menu-bg: rgba(19, 50, 68, 0.9);
+    --color-overlay-bg: rgba(0, 0, 0, 0.5);
     --color-button-hover: #F7B5CA;
-    
+
     /* Typography */
     --font-family-primary: 'Ubuntu', sans-serif;
     --font-family-secondary: 'Georgia', serif;
@@ -75,7 +75,7 @@ body {
     --spacing-small: 10px;
     --spacing-medium: 20px;
     --spacing-large: 40px;
-    
+
     /* Z-Index */
     --z-index-background: 1;
     --z-index-overlay: 2;
@@ -84,7 +84,10 @@ body {
     --z-index-toggle: 10000;
 }
 
-/* CSS Reset & General Styles */
+
+/*=============================================
+=            CSS RESET & BASE STYLES          =
+=============================================*/
 *,
 *::before,
 *::after {
@@ -99,9 +102,7 @@ body {
     line-height: 1.6;
 }
 
-input,
-select,
-textarea {
+input, select, textarea {
     outline: none;
 }
 
@@ -119,7 +120,7 @@ p {
     font-size: 16px;
     line-height: 24px;
     color: var(--color-text-light);
-    text-align: justify; /* Ensure text is justified */
+    text-align: justify;
 }
 
 h4 {
@@ -153,9 +154,77 @@ ul {
 
 .container {
     margin: 0 auto;
-    width: 100%; /* Default to full width, adjust in sections */
-    max-width: 1400px; /* Max content width */
+    width: 100%;
+    max-width: 1400px;
 }
+
+.about-text a {
+    text-decoration: underline;
+    color: inherit;
+    font-weight: bold;
+}
+
+.about-text a:hover {
+    color: rgb(214, 122, 127, 0.5);
+}
+
+
+/*=============================================
+=            RESEARCH BOX                     =
+=============================================*/
+.research-box {
+    margin: 60px auto;
+    padding: 40px;
+    max-width: 800px;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.03) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.05),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    text-align: left;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.research-box p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+}
+
+.research-box p:last-child {
+    margin-bottom: 0;
+}
+
+.research-box:hover {
+    transform: translateY(-5px) scale(1.01);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(100, 150, 255, 0.1);
+}
+
+.research-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #d60505, #4ecdc4, #1849d1);
+    opacity: 0.6;
+}
+
 
 /*=============================================
 =            PAGE WRAPPER & BACKGROUND        =
@@ -167,7 +236,6 @@ ul {
     width: 100%;
 }
 
-/* Background Overlay */
 #page-wraper::before {
     content: '';
     position: absolute;
@@ -179,11 +247,11 @@ ul {
     z-index: var(--z-index-overlay);
 }
 
-/* Ensure content is above the overlay */
 #page-wraper > * {
     position: relative;
     z-index: var(--z-index-content);
 }
+
 
 /*=============================================
 =            SIDEBAR MENU (NAVIGATION)        =
@@ -194,37 +262,31 @@ ul {
     left: 0;
     width: 15%;
     height: 100vh;
-    /* Use a slightly darker, more opaque background for a rich, modern feel */
     background-color: var(--color-menu-bg);
     z-index: var(--z-index-menu) !important;
     overflow-y: auto !important;
-    /* Elevated shadow for depth */
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
     transform: translateX(0);
-    /* Smoother, bouncier transition */
     transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.3s ease-in-out;
 }
 
-/* Smooth Scrollbar - Enhanced Visibility */
 .menu::-webkit-scrollbar {
     width: 8px;
     background-color: transparent;
 }
+
 .menu::-webkit-scrollbar-thumb {
-    /* Brighter scrollbar for contrast */
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 4px;
-    /* Add a subtle hover state to the thumb (requires JS or complex CSS for full effect, but good to define) */
     transition: background-color 0.3s ease;
 }
+
 .menu::-webkit-scrollbar-thumb:hover {
     background-color: rgba(255, 255, 255, 0.7);
 }
 
-/* Menu Image (Profile Picture) */
 .menu .image {
     margin-top: 60px;
-    /* Center the container */
     text-align: center;
 }
 
@@ -232,47 +294,41 @@ ul {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    /* Thicker, more prominent border */
     border: 2px solid var(--color-primary);
-    /* Soft internal shadow for dimension */
     box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    object-fit: cover; /* Ensures image covers the area nicely */
+    object-fit: cover;
 }
 
 .menu .image img:hover {
-    /* More pronounced, but smooth zoom and rotate */
     transform: scale(1.05) rotate(1deg);
     border-color: var(--color-text-light);
 }
 
-/* Author Content */
 .menu .author-content {
     margin: var(--spacing-large) 0;
-    padding: 0 20px; /* Add horizontal padding for a clean look */
+    padding: 0 20px;
     color: var(--color-text-light);
     text-align: center;
 }
 
 .menu .author-content h4 {
-    margin-bottom: 8px; /* Increased margin */
-    font-size: 24px; /* Slightly larger heading */
+    margin-bottom: 8px;
+    font-size: 24px;
     font-weight: 700;
-    letter-spacing: 1.5px; /* Tighter letter spacing for title */
+    letter-spacing: 1.5px;
     color: var(--color-text-light);
-    /* Add text shadow for clarity against dark background */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .menu .author-content span {
     font-size: 14px;
-    font-style: normal; /* Often better to remove italics for job titles */
+    font-style: normal;
     color: rgba(255, 255, 255, 0.6);
 }
 
-/* Main Navigation Links */
 .main-nav {
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Single separator line above nav */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .main-nav li {
@@ -281,44 +337,38 @@ ul {
 }
 
 .main-nav li a {
-    height: 60px; /* Slightly shorter for a compact, modern look */
+    height: 60px;
     line-height: 60px;
     display: block;
-    font-size: 17px; /* Slightly larger text */
-    font-weight: 500; /* Medium weight, less 'heavy' than bold */
+    font-size: 17px;
+    font-weight: 500;
     color: var(--color-text-light);
     width: 100%;
     transition: all 0.3s ease;
-    /* Use transparent border that shows up on hover/active */
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    /* Add padding for better visual spacing */
     padding-left: 20px;
     text-align: left;
 }
 
 .main-nav li:last-child a {
-    /* Ensures the last item has a bottom border matching the top ones */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .main-nav li:hover a {
-    background: rgba(255, 255, 255, 0.1); /* Subtle transparent hover background */
+    background: rgba(255, 255, 255, 0.1);
     color: var(--color-text-light);
-    /* Add a primary color accent line on hover */
     border-left: 5px solid var(--color-primary);
-    padding-left: 15px; /* Adjust padding due to border */
+    padding-left: 15px;
 }
 
 .main-nav li.active a {
-    /* Use the primary color for the active state */
     background: var(--color-primary);
     color: var(--color-text-light);
     font-weight: 700;
-    /* Remove the hover effect since it's active */
     border-left: none;
     padding-left: 20px;
 }
-/* Enhanced Social Media Icons */
+
 .menu .social-network {
     margin-top: 40px;
     padding: 25px;
@@ -376,13 +426,11 @@ ul {
     border-color: transparent;
 }
 
-
-/* Copyright Text */
 .menu .copyright-text {
     margin-top: 60px;
     color: rgba(255, 255, 255, 0.5);
     font-size: 12px;
-    padding: 20px 20px 40px; /* Added bottom padding for space */
+    padding: 20px 20px 40px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
 }
@@ -393,32 +441,45 @@ ul {
     font-size: 12px;
 }
 
-/* Menu Toggle/Close Buttons (Mobile Only) */
+/* Menu Toggle/Close Buttons */
 #menu-toggle {
-    /* Position and size are fine, but enhance the look */
-    background-color: var(--color-primary); /* Use primary color for main toggle */
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    background-color: var(--color-primary);
     color: var(--color-text-light);
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+    cursor: pointer;
+    z-index: var(--z-index-toggle);
+    display: none; /* Hidden by default; shown on mobile via media query */
 }
 
 #menu-toggle:hover {
-    background-color: var(--color-secondary); /* Darken slightly on hover */
+    background-color: var(--color-secondary);
 }
 
 #menu-close {
-    /* Use the same styling as the menu links for consistency */
     cursor: pointer;
     color: var(--color-text-light);
     background-color: transparent;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 24px; /* Larger icon for easy closing */
+    font-size: 24px;
     transition: background-color 0.3s ease;
+    display: none; /* Hidden by default; shown on mobile via media query */
 }
 
 #menu-close:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--color-primary);
 }
+
+
 /*=============================================
 =            MAIN CONTENT SECTIONS            =
 =============================================*/
@@ -429,10 +490,10 @@ ul {
     padding: 0 5%;
     padding-bottom: 80px;
     border-bottom: 3px solid rgba(250, 250, 250, 0.25);
-    left: 35%; /* Default shift for 15% menu + 20% margin */
+    left: 35%;
     width: 55%;
     right: 10%;
-    transition: all 0.4s ease; /* Smooth transition for layout changes */
+    transition: all 0.4s ease;
 }
 
 section.contact-me {
@@ -464,7 +525,6 @@ section.contact-me {
     letter-spacing: 0.5px;
 }
 
-/* About Section Specifics */
 section.about .container {
     display: flex;
     flex-direction: column;
@@ -473,13 +533,28 @@ section.about .container {
 }
 
 .about-text {
-    font-size: 0.9em;
-    text-align: justify;
+    padding: 30px 40px;
+    background-color: rgba(19, 50, 68, 0.349);
+    border: 1px solid var(--color-primary);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    font-size: 1.1em !important;
     font-family: var(--font-family-secondary);
     font-style: italic;
+    line-height: 1.8;
+    text-align: justify;
+    color: var(--color-text-light) !important;
+    display: block !important;
+    margin: 20px 0;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
 }
 
-/* Work/Post Layout */
+.about-text:hover {
+    border-color: var(--color-text-light);
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
 .right-image-post,
 .left-image-post {
     margin-top: 60px;
@@ -507,6 +582,7 @@ section.about .container {
     margin-top: 30px;
 }
 
+
 /*=============================================
 =            QUOTE BOXES & LAYOUT             =
 =============================================*/
@@ -518,13 +594,13 @@ section.about .container {
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -10px; /* Counteracts quote-box margin */
+    margin: 0 -10px;
 }
 
 .col-md-6 {
-    flex: 1 1 calc(50% - 20px); /* Ensures two per row with 10px margin on each side (20px total) */
+    flex: 1 1 calc(50% - 20px);
     display: flex;
-    padding: 10px; /* Use padding for spacing */
+    padding: 10px;
 }
 
 .quote-box {
@@ -538,7 +614,6 @@ section.about .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Removed animation: none; to allow twinkle effect if needed */
 }
 
 .quote-box blockquote {
@@ -555,10 +630,10 @@ section.about .container {
     font-style: normal;
 }
 
+
 /*=============================================
 =            BUTTONS & LINKS                  =
 =============================================*/
-/* Primary Button Style (Used in posts/contact) */
 .white-button a {
     display: inline-block;
     padding: 12px 20px;
@@ -577,7 +652,6 @@ section.about .container {
     color: var(--color-primary);
 }
 
-/* Secondary Button Style (Generic) */
 button {
     display: inline-block;
     padding: 10px 20px;
@@ -599,7 +673,6 @@ button:hover {
     color: var(--color-text-light);
 }
 
-/* Smaller Inline Button */
 .button {
     display: inline-block;
     padding: 4px 8px;
@@ -631,196 +704,34 @@ button:hover {
     text-decoration: underline;
 }
 
+
 /*=============================================
-=            RESPONSIVENESS (Media Queries)   =
+=            INTEREST CARDS                   =
 =============================================*/
-
-/* DESKTOP (Default - 993px and up) */
-@media (min-width: 993px) {
-    /* Menu is visible */
-    .menu {
-        transform: translateX(0) !important;
-        width: 15%; /* Standard Desktop Menu Width */
-    }
-
-    /* Content is shifted over */
-    .section {
-        width: 60%;
-        left: 30%; /* 15% menu + 15% gap */
-        right: 10%;
-    }
-    
-    /* Hide mobile controls */
-    #menu-toggle,
-    #menu-close {
-        display: none !important;
-    }
-    
-    /* Large Desktop Tweaks */
-    @media screen and (max-width: 1680px) {
-        .menu {
-            left: 0;
-            width: 20%;
-        }
-        .section {
-            width: 70%;
-            left: 25%; /* 20% menu + 5% gap */
-            right: 5%;
-        }
-    }
-    
-    @media screen and (max-width: 1280px) {
-        .menu {
-            width: 25%;
-        }
-        .section {
-            width: 70%;
-            left: 28%; /* 25% menu + 3% gap */
-            right: 2%;
-        }
-    }
-}
-/* Enhanced About Text Styling */
-/* Enhanced About Text Styling with Overlay Effect */
-.about-text {
-    /* Use padding to create a visually enclosed block */
-    padding: 30px 40px; 
-    
-    /* *** OVERLAY EFFECT: *** Using a slightly darker, more opaque background ensures the text pops 
-    over the page's main background image/overlay.
-    */
-    background-color: rgba(19, 50, 68, 0.349); /* Using a slightly more opaque version of var(--color-menu-bg) for contrast */
-    
-    /* Subtle border accent using the primary color */
-    border: 1px solid var(--color-primary); 
-    border-radius: 8px; /* Slightly rounded corners */
-    
-    /* Add a soft shadow to lift it off the background */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); 
-    
-    /* Typography Enhancements */
-    font-size: 1.1em !important; /* Slightly larger font for prominence */
-    font-family: var(--font-family-secondary); /* Keep the sophisticated serif font */
-    font-style: italic; /* Keep the italic style */
-    line-height: 1.8; /* Increased line height for easy reading */
-    text-align: justify;
-    color: var(--color-text-light) !important; /* Ensure high contrast white text */
-    
-    /* Make it a block for proper alignment and padding */
-    display: block !important; 
-    
-    /* Add some margin to separate it from other content */
-    margin: 20px 0;
-    
-    /* Use a text shadow for better contrast against the semi-transparent background */
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-    
-    transition: all 0.3s ease; /* Ensure smooth transition */
-}
-
-/* Optional: Add a subtle hover effect if the text is interactive */
-.about-text:hover {
-    border-color: var(--color-text-light);
-    background-color: rgba(255, 255, 255, 0.12);
-    transition: all 0.3s ease;
-}
-
-/* Mobile adjustments for tighter screen space */
-@media (max-width: 768px) {
-    .about-text {
-        padding: 20px 25px; /* Reduce padding */
-        font-size: 1em !important; /* Standardize font size */
-        line-height: 1.6;
-    }
-}
-/* TABLET/SMALL DESKTOP (992px to 769px) */
-@media (max-width: 992px) {
-    /* Mobile Menu State (Hidden by default) */
-    .menu {
-        transform: translateX(-100%);
-        width: 300px; /* Fixed width when open */
-        max-width: 80vw;
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* Menu Open Class (Toggled by JS) */
-    .menu.open {
-        transform: translateX(0);
-        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
-    }
-    
-    /* Show mobile menu controls */
-    #menu-toggle {
-        display: block;
-    }
-    
-    /* Content occupies full width but is shifted slightly for the toggle button */
-    .section {
-        width: calc(100% - 70px); /* Leave space for the toggle */
-        left: 70px; /* Shift content to the right */
-        right: 0;
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-
-    /* Re-center content when the menu is fully closed and the toggle is visible */
-    #page-wraper:not(.menu-open) .section {
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-    }
-    
-    /* General Font/Spacing Adjustments */
-    h4 { font-size: 24px; }
-    p { font-size: 15px; line-height: 24px; }
-    .section-heading { padding: 50px 30px 30px; }
-    
-    /* Quote Boxes remain stacked side-by-side but with less margin */
-    .col-md-6 {
-        flex: 1 1 calc(50% - 10px);
-        padding: 5px;
-    }
-}
-/*=============================================
-=            INTEREST CARDS (Replaces Quote Box) =
-=============================================*/
-
 .interest-cards-row {
-    /* Adjust margin to tighten the grid for better use of space */
-    margin: -15px -15px; 
+    margin: -15px -15px;
     padding-top: var(--spacing-medium);
 }
 
 .interest-cards-row .col-md-6 {
-    padding: 15px; /* Increase padding around columns for better card spacing */
+    padding: 15px;
 }
 
 .interest-card {
     flex-grow: 1;
-    /* Elevated background color, slightly more opaque than the general overlay */
-    background-color: rgba(255, 255, 255, 0.05); 
-    
-    border-radius: 12px; /* Modern, softer corners */
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
     padding: var(--spacing-medium) calc(var(--spacing-medium) + 10px);
-    
-    /* Use a light border for subtle definition */
     border: 1px solid rgba(255, 255, 255, 0.1);
-    
-    /* Floating 3D effect */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
-    
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
-    height: 100%; /* Ensures all cards stretch to the same height */
-    
-    /* Hover Transition */
+    height: 100%;
     transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-    
     position: relative;
     overflow: hidden;
 }
 
-/* Subtle background overlay for visual texture */
 .interest-card::before {
     content: '';
     position: absolute;
@@ -834,15 +745,13 @@ button:hover {
 }
 
 .interest-card:hover {
-    /* Lift and Accentuate on hover */
-    transform: translateY(-5px); 
-    background-color: rgba(164, 63, 73, 0.1); /* Subtle primary color background wash */
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5); 
-    border-color: var(--color-primary); /* Primary color border highlight */
+    transform: translateY(-5px);
+    background-color: rgba(164, 63, 73, 0.1);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+    border-color: var(--color-primary);
 }
 
 .interest-card h4 {
-    /* Accent Line beneath the title */
     position: relative;
     padding-bottom: 10px;
     margin-bottom: 15px;
@@ -856,7 +765,7 @@ button:hover {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 40px; /* Short accent line */
+    width: 40px;
     height: 3px;
     background-color: var(--color-primary);
     border-radius: 2px;
@@ -864,168 +773,40 @@ button:hover {
 }
 
 .interest-card:hover h4::after {
-    width: 190px; /* Expand accent line on hover */
+    width: 190px;
 }
 
 .interest-card p {
     font-size: 15px;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.75); /* Softer white text for body */
-    text-align: justify; /* Remove justify for quote boxes */
+    color: rgba(255, 255, 255, 0.75);
+    text-align: justify;
 }
 
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .interest-cards-row {
-        margin: 0; /* Remove negative margins */
-    }
-    .interest-cards-row .col-md-6 {
-        padding: 10px 0;
-    }
-    .interest-card {
-        padding: 20px;
-        border-radius: 8px;
-        margin: 0 5px; /* Add small margin left/right */
-    }
-    .interest-card h4 {
-        font-size: 20px;
-    }
-    .interest-card p {
-        font-size: 14px;
-    }
-}
-/* MOBILE (768px and below) */
-@media (max-width: 768px) {
-    
-    /* Menu is smaller when open */
-    .menu {
-        width: 90vw;
-    }
-    
-    /* Toggle button is crucial */
-    #menu-toggle {
-        top: 15px;
-        left: 15px;
-        width: 50px;
-        height: 50px;
-        line-height: 50px;
-        font-size: 20px;
-    }
 
-    /* Content occupies full width but is shifted slightly for the toggle button */
-    .section {
-        width: 100%;
-        left: 0; /* Content takes full width */
-        padding-left: 20px;
-        padding-right: 20px;
-        min-height: auto;
-        padding-bottom: 40px;
-    }
-
-    /* Adjust section heading for smaller screens */
-    .section-heading {
-        padding: 40px 0 20px;
-    }
-    
-    .section-heading h2 {
-        font-size: 22px;
-    }
-    
-    p {
-        font-size: 14px;
-        line-height: 20px;
-    }
-    
-    .about-text {
-        font-size: 0.9em;
-        line-height: 1.6;
-        padding-bottom: 30px;
-    }
-
-    section.about .container {
-        min-height: auto; /* Allow height to collapse to content */
-    }
-    
-    /* Quote boxes stack vertically for better readability */
-    .col-md-6 {
-        flex: 1 1 100%; /* Full width */
-        padding: 10px 0;
-    }
-    
-    .row {
-        margin: 0;
-    }
-
-    /* Post/Work sections adjust */
-    .right-image-post,
-    .left-image-post {
-        margin-top: 30px;
-        padding-top: 30px;
-    }
-
-    /* Smaller form inputs */
-    #contact input,
-    #contact textarea {
-        font-size: 12px;
-        padding: 10px;
-    }
-}
-
-/* VERY SMALL MOBILE (480px and below) */
-@media screen and (max-width: 480px) {
-    .menu .image img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .menu .author-content h4 {
-        font-size: 18px;
-    }
-
-    .section-heading h2 {
-        font-size: 20px;
-    }
-    
-    .white-button a,
-    button {
-        font-size: 10px;
-        padding: 8px 12px;
-    }
-}
 /*=============================================
-=            RESEARCH STATUS HIGHLIGHT - BLESSED EYES EDITION =
+=            RESEARCH STATUS HIGHLIGHT        =
 =============================================*/
-
 .current-status-highlight {
-    /* Use generous padding for breathing room */
     padding: 30px 30px;
-    margin: 0 auto 50px auto; 
-    max-width: 100%; 
-    
-    /* BACKGROUND & DEPTH: Rich, dark background */
+    margin: 0 auto 50px auto;
+    max-width: 100%;
     background: linear-gradient(145deg, rgba(19, 50, 68, 0.384) 0%, rgba(14, 38, 51, 0.98) 100%);
-    
-    /* VIBRANT BORDER: Thin, crisp border using the primary color */
-    border: 1px solid rgba(14, 38, 51, 0.98); 
-    border-radius: 12px; /* Smoother, elegant corners */
-    
-    /* ELEVATION: Stronger, more refined box shadow */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 244, 244, 0.61); /* Dual shadow for depth and glow */
-    
+    border: 1px solid rgba(14, 38, 51, 0.98);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 244, 244, 0.61);
     text-align: left;
     position: relative;
-    overflow: hidden; /* Important for the shimmer effect */
+    overflow: hidden;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* SHIMMER/ACCENT EFFECT on Hover (Super cool) */
 .current-status-highlight:hover {
-    transform: translateY(-4px); /* Slight lift */
-    border-color: var(--color-text-light); /* Highlight border */
+    transform: translateY(-4px);
+    border-color: var(--color-text-light);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 30px var(--color-primary);
 }
 
-/* Animated Shimmer Overlay */
 .current-status-highlight::after {
     content: '';
     position: absolute;
@@ -1033,7 +814,7 @@ button:hover {
     left: -150%;
     width: 50%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.05); /* Very subtle white wash */
+    background: rgba(255, 255, 255, 0.05);
     transform: skewX(-20deg);
     transition: left 0.7s ease-in-out;
 }
@@ -1042,53 +823,360 @@ button:hover {
     left: 150%;
 }
 
-
-/* TYPOGRAPHY */
 .status-main {
-    font-size: 1.0em; /* Highly visible */
-    font-weight: 600; /* Semi-bold for professionalism */
+    font-size: 1.0em;
+    font-weight: 600;
     color: var(--color-text-light);
     line-height: 1.6;
-    margin-bottom: 12px; /* Increased separation */
+    margin-bottom: 12px;
     text-align: left !important;
 }
 
 .status-sub {
     font-size: 1.0em;
-    color: rgba(255, 255, 255, 0.75); /* Good contrast, easy on the eyes */
+    color: rgba(255, 255, 255, 0.75);
     line-height: 1.6;
     text-align: left !important;
 }
 
 .status-icon {
-    font-size: 1.6em; /* Larger icon */
+    font-size: 1.6em;
     margin-right: 15px;
     vertical-align: middle;
-    color: var(--color-primary); /* Primary color pop */
-    text-shadow: 0 0 5px var(--color-primary); /* Subtle glow on the icon */
+    color: var(--color-primary);
+    text-shadow: 0 0 5px var(--color-primary);
 }
 
 .status-main strong {
-    color: var(--color-primary); 
-    font-weight: 800; /* Extra bold highlight */
+    color: var(--color-primary);
+    font-weight: 800;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
-/* Mobile Adjustments (Keeps it clean and readable on small screens) */
+
+/*=============================================
+=            DESKTOP LAYOUT (993px+)          =
+=============================================*/
+@media (min-width: 993px) {
+    .menu {
+        transform: translateX(0) !important;
+        width: 15%;
+    }
+
+    .section {
+        width: 60%;
+        left: 30%;
+        right: 10%;
+    }
+
+    #menu-toggle,
+    #menu-close {
+        display: none !important;
+    }
+}
+
+/* Wide desktop (up to 1680px) */
+@media (min-width: 993px) and (max-width: 1680px) {
+    .menu {
+        left: 0;
+        width: 20%;
+    }
+    .section {
+        width: 70%;
+        left: 25%;
+        right: 5%;
+    }
+}
+
+/* Narrow desktop (up to 1280px) */
+@media (min-width: 993px) and (max-width: 1280px) {
+    .menu {
+        width: 25%;
+    }
+    .section {
+        width: 70%;
+        left: 28%;
+        right: 2%;
+    }
+}
+
+
+/*=============================================
+=            TABLET (769px – 992px)           =
+=============================================*/
+@media (max-width: 992px) {
+    /* Slide menu off-screen by default */
+    .menu {
+        transform: translateX(-100%);
+        width: 300px;
+        max-width: 80vw;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .menu.open {
+        transform: translateX(0);
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #menu-toggle,
+    #menu-close {
+        display: block;
+    }
+
+    /* Full-width content, offset for toggle button */
+    .section {
+        width: calc(100% - 70px);
+        left: 70px;
+        right: 0;
+        padding-left: 5%;
+        padding-right: 5%;
+        transform: none;
+    }
+
+    h4 { font-size: 24px; }
+    p { font-size: 15px; line-height: 24px; }
+    .section-heading { padding: 50px 30px 30px; }
+
+    .col-md-6 {
+        flex: 1 1 calc(50% - 10px);
+        padding: 5px;
+    }
+}
+
+
+/*=============================================
+=            MOBILE (max 768px)               =
+=============================================*/
 @media (max-width: 768px) {
+
+    /* Menu slides in from left, nearly full width */
+    .menu {
+        width: 85vw;
+        max-width: 320px;
+    }
+
+    .menu .image {
+        margin-top: 70px; /* Clear the close button */
+    }
+
+    .menu .image img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .menu .author-content h4 {
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+
+    .menu .author-content span {
+        font-size: 12px;
+    }
+
+    .main-nav li a {
+        height: 52px;
+        line-height: 52px;
+        font-size: 15px;
+    }
+
+    /* Toggle button */
+    #menu-toggle {
+        display: block;
+        top: 12px;
+        left: 12px;
+        width: 44px;
+        height: 44px;
+        line-height: 44px;
+        font-size: 18px;
+        border-radius: 4px;
+    }
+
+    /* Close button inside menu */
+    #menu-close {
+        display: block;
+    }
+
+    /* Content: full width, small top padding so it clears the toggle */
+    .section {
+        width: 100%;
+        left: 0;
+        right: 0;
+        transform: none;
+        padding: 60px 18px 40px 18px; /* top clears toggle button */
+        min-height: auto;
+    }
+
+    .section-heading {
+        padding: 30px 0 20px;
+    }
+
+    .section-heading h2 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    h4 {
+        font-size: 20px;
+    }
+
+    /* About section */
+    section.about .container {
+        min-height: auto;
+    }
+
+    .about-text {
+        padding: 20px 18px;
+        font-size: 0.95em !important;
+        line-height: 1.65;
+    }
+
+    /* Interest cards: stack full width */
+    .interest-cards-row {
+        margin: 0;
+    }
+
+    .interest-cards-row .col-md-6 {
+        padding: 8px 0;
+    }
+
+    .interest-card {
+        padding: 18px;
+        border-radius: 8px;
+        margin: 0;
+    }
+
+    .interest-card h4 {
+        font-size: 18px;
+    }
+
+    .interest-card p {
+        font-size: 13px;
+    }
+
+    /* Quote boxes: stack vertically */
+    .col-md-6 {
+        flex: 1 1 100%;
+        padding: 8px 0;
+    }
+
+    .row {
+        margin: 0;
+    }
+
+    /* Research box */
+    .research-box {
+        margin: 30px 0;
+        padding: 22px 18px;
+        border-radius: 14px;
+    }
+
+    /* Status highlight */
     .current-status-highlight {
-        padding: 25px;
-        margin: 0 0 30px 0;
-        max-width: 100%;
+        padding: 20px 16px;
+        margin: 0 0 24px 0;
         border-radius: 8px;
     }
+
     .status-main {
-        font-size: 1.05em;
+        font-size: 0.95em;
     }
+
     .status-sub {
-        font-size: 0.9em;
+        font-size: 0.88em;
     }
+
     .status-icon {
-        font-size: 1.2em;
+        font-size: 1.1em;
+        margin-right: 10px;
+    }
+
+    /* Work posts */
+    .right-image-post,
+    .left-image-post {
+        margin-top: 30px;
+        padding-top: 30px;
+    }
+
+    /* Buttons */
+    .white-button a,
+    button {
+        font-size: 11px;
+        padding: 10px 14px;
+    }
+
+    /* Contact form */
+    #contact input,
+    #contact textarea {
+        font-size: 13px;
+        padding: 10px;
+    }
+}
+
+
+/*=============================================
+=            VERY SMALL MOBILE (max 480px)    =
+=============================================*/
+@media (max-width: 480px) {
+
+    .section {
+        padding: 55px 14px 30px 14px;
+    }
+
+    .menu .image img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .menu .author-content h4 {
+        font-size: 16px;
+    }
+
+    .section-heading h2 {
+        font-size: 19px;
+    }
+
+    p {
+        font-size: 13px;
+        line-height: 20px;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+
+    .about-text {
+        padding: 16px 14px;
+        font-size: 0.9em !important;
+    }
+
+    .interest-card h4 {
+        font-size: 16px;
+    }
+
+    .interest-card p {
+        font-size: 12px;
+    }
+
+    .research-box {
+        padding: 18px 14px;
+    }
+
+    .white-button a,
+    button {
+        font-size: 10px;
+        padding: 8px 12px;
+    }
+
+    #menu-toggle {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        top: 10px;
+        left: 10px;
     }
 }
