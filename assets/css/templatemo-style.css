@@ -980,16 +980,25 @@ button:hover {
     }
 
     /* Toggle button */
-    #menu-toggle {
-        display: block;
-        top: 12px;
-        left: 12px;
-        width: 44px;
-        height: 44px;
-        line-height: 44px;
-        font-size: 18px;
-        border-radius: 4px;
-    }
+#menu-toggle {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    font-size: 18px;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: var(--z-index-toggle); /* this is 10000 - above everything */
+    display: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation; /* ← key fix for mobile tap delay */
+}
 
     /* Close button inside menu */
     #menu-close {
