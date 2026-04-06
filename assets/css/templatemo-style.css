@@ -131,6 +131,10 @@ ul { list-style: none; padding: 0; margin: 0; }
 /*=============================================
 =            PAGE WRAPPER & BACKGROUND        =
 =============================================*/
+.responsive-nav {
+    position: static !important;
+    z-index: auto !important;
+}
 #page-wraper {
     position: relative;
     background: url(../images/pexels-instawally-169789.jpg) no-repeat center center fixed;
