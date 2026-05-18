@@ -18,9 +18,7 @@
     --z-index-toggle: 10000;
 }
 
-/*=============================================
-=            CSS RESET & BASE STYLES          =
-=============================================*/
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -83,9 +81,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 .about-text a:hover { color: rgb(214, 122, 127, 0.5); }
 
 
-/*=============================================
-=            RESEARCH BOX                     =
-=============================================*/
+
 .research-box {
     margin: 60px auto;
     padding: 40px;
@@ -128,9 +124,6 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 
 
-/*=============================================
-=            PAGE WRAPPER & BACKGROUND        =
-=============================================*/
 .responsive-nav {
     position: static !important;
     z-index: auto !important;
@@ -157,9 +150,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 
 
-/*=============================================
-=            SIDEBAR MENU                     =
-=============================================*/
+
 .menu {
     position: fixed !important;
     top: 0;
@@ -297,10 +288,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 .menu .copyright-text p { padding-top: 0; line-height: 1.4; font-size: 12px; }
 
 
-/*=============================================
-=            MENU TOGGLE & CLOSE              =
-=   Single clean definition, no duplicates    =
-=============================================*/
+
 
 /* Hidden on desktop by default */
 #menu-toggle {
@@ -345,9 +333,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 #menu-close:hover { background-color: rgba(255,255,255,0.1); color: var(--color-primary); }
 
 
-/*=============================================
-=            MAIN CONTENT SECTIONS            =
-=============================================*/
+
 .section {
     color: var(--color-text-light);
     position: relative;
@@ -397,9 +383,7 @@ section.about .container { display: flex; flex-direction: column; justify-conten
 .right-image-post .white-button, .left-image-post .white-button { margin-top: 30px; }
 
 
-/*=============================================
-=            QUOTE BOXES & LAYOUT             =
-=============================================*/
+
 @keyframes twinkle {
     0%, 100% { opacity: 0.7; }
     50% { opacity: 1; }
@@ -423,9 +407,7 @@ section.about .container { display: flex; flex-direction: column; justify-conten
 .quote-box footer { font-size: 1.2em; color: var(--color-text-light); margin-top: 10px; font-family: var(--font-family-secondary); }
 
 
-/*=============================================
-=            BUTTONS & LINKS                  =
-=============================================*/
+
 .white-button a {
     display: inline-block;
     padding: 12px 20px;
@@ -472,9 +454,7 @@ button:hover { background-color: var(--color-primary); color: var(--color-text-l
 .resume-link { color: inherit; font-weight: bold; text-decoration: underline; }
 
 
-/*=============================================
-=            INTEREST CARDS                   =
-=============================================*/
+
 .interest-cards-row { margin: -15px -15px; padding-top: var(--spacing-medium); }
 .interest-cards-row .col-md-6 { padding: 15px; }
 
@@ -516,9 +496,7 @@ button:hover { background-color: var(--color-primary); color: var(--color-text-l
 .interest-card p { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.75); text-align: justify; }
 
 
-/*=============================================
-=            RESEARCH STATUS HIGHLIGHT        =
-=============================================*/
+
 .current-status-highlight {
     padding: 30px;
     margin: 0 auto 50px auto;
@@ -552,7 +530,7 @@ button:hover { background-color: var(--color-primary); color: var(--color-text-l
 
 
 /*=============================================
-=            DESKTOP (993px+) — UNTOUCHED     =
+=            DESKTOP (993px+)      =
 =============================================*/
 @media (min-width: 993px) {
     .menu {
@@ -582,7 +560,7 @@ button:hover { background-color: var(--color-primary); color: var(--color-text-l
 
 
 /*=============================================
-=            TABLET (769px – 992px)           =
+=            TABLET (769px 992px)           =
 =============================================*/
 @media (max-width: 992px) {
 
